@@ -11,9 +11,10 @@ use bollard_next::Docker;
 /// ```
 async fn check_docker_env() -> bool {
     let docker = Docker::connect_with_local_defaults().unwrap();
-    let info = docker.info().await;
-    info.is_ok()
+    let version = docker.version().await;
+    version.is_ok()
 }
+
 
 
 
